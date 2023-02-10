@@ -1,0 +1,17 @@
+.links{
+    text-decoration: none;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.button{
+    width: fit-content;
+    height: 30px;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 25px;
+    padding: 6px 16px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}

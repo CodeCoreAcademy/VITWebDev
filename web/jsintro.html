@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log("Hello World"); 
+        {
+            let a = 10;
+            var b = 20
+        }
+        // console.log(a, b)
+        // console.log(b)
+        // console.error("This is an error")
+        // console.info("Information")
+        // console.warn("Warning")
+        // console.log(19/2);
+        
+    </script>
+
+    <div id="box">inside div</div>
+    <div id="box2">
+        <p>
+            first paragraph
+        </p>
+        <p>
+            second paragraph
+        </p>
+    </div>
+    <button onclick="display()" >Display</button>
+    <br />
+
+
+    <input type="number" id="in" />
+    <button onclick="isPrime()">Check</button>
+    <p id="res"></p>
+    <script>
+        let element = document.getElementById("box")
+        console.log(element.innerText)
+
+        function display()
+        {
+            let element2 = document.getElementById("box2")
+            // console.log(element2.innerText)
+            console.log(element2.innerHTML)
+        }
+
+        function isPrime(){
+            let num = document.getElementById("in").value
+            let f=0
+            for(let i=2; i<= parseInt(Math.sqrt(num)) ; i++)
+            {
+                if(num%i == 0){
+                    f=1;
+                    break;
+                }
+            }
+            if(f==0)
+                document.getElementById("res").innerText = "It is prime"
+            else
+                document.getElementById("res").innerText = "It is not prime"
+        }
+        
+    </script>
+</body>
+</html>
