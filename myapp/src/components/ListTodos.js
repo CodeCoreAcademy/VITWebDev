@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './todoliststyle.css'
 export default function ListTodos() {
-    const arr = ["Khana Khana aasdasds", "Padhai karna","Assignment baki hain", "Date pe jana hai", "Sona hai"]
+    const arr = ["Khana Khana aasdasds", "Padhai karna","Assignment baki hain", "Date pe jana hai", "Sona hai", "new Job"]
   
     const [display, setDisplay] = useState('hidden')
     return (
