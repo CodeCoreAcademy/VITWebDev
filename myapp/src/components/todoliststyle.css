@@ -12,14 +12,23 @@
     display:flex;
     align-items: center;
     justify-content: space-between;
+    transition:box-shadow  0.5s;
 }
 .single_job:hover{
     box-shadow:0px 1px 10px 0px #bebebe;
 }
+.view{
+    display:none;
+}
+.single_job:hover .view{
+    display: block;
+}
 
 .show{
     display: inline-block;
+    transition:display 0.5s;
 }
 .hidden{
     display:none;
+    transition:display 0.5s;
 }
