@@ -1,0 +1,25 @@
+.todo_container {
+    padding:8px;
+}
+.single_job {
+    height:40px;
+    margin-top: 8px;
+    margin-bottom:8px;
+    box-shadow:0px 1px 10px 0px #e9e5e5;
+    padding:8px;
+    cursor:pointer;
+    border-radius:8px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.single_job:hover{
+    box-shadow:0px 1px 10px 0px #bebebe;
+}
+
+.show{
+    display: inline-block;
+}
+.hidden{
+    display:none;
+}
