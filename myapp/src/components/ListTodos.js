@@ -88,7 +88,7 @@ export default function ListTodos() {
                                     <div style={{display:'flex'}}>
                                         <div style={{width:'30px'}} >
                                             {/* <input type="checkbox" className={display}/> */}
-                                            <input type="checkbox" className='' checked={element.completed} onChange={()=>handleComplete(index)}/>
+                                            <input type="checkbox" className='' checked={element.completed} onClick={()=>handleComplete(index)}/>
                                         </div>
                                         <span style={{textDecoration: element.completed==true?'line-through':''}}>{element.desc}</span>
                                         
