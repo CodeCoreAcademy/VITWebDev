@@ -14,11 +14,28 @@ body{
     display:flex;
 }
 
+.ab{
+    transition: background-color 0.5s;
+}
+
+.ab:hover{
+    background-color: #dddddd;
+}
+
 .ab:hover .noDisplay{
     display:none;
 }
 
 .ab:hover .display {
     display: flex;
+}
+
+.row{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+.iconbox{
+    padding:8px;
 }
 

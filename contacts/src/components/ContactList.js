@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import data from '../db.js'
-import { Avatar, Checkbox } from '@mui/material';
+import { Avatar, Checkbox, IconButton } from '@mui/material';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
@@ -13,15 +13,19 @@ import SingleContact from './SingleContact.js';
 
 export default function ContactList(props) {
   
+  const handleClick = (id)=>{
+    props.select(id)
+    props.func(true)
+  }
   return (
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-      {console.log(props.func)}
+      {/* {console.log(props)} */}
       <List>
         {
           data.map((element, index)=>{
             return (
-              <ListItem disablePadding className="ab" key={element.id}>
-                <ListItemButton onClick={()=>props.func(true)}>
+              <ListItem className="ab" key={element.id}>
+                {/* <ListItemButton onClick={()=>handleClick(element.id)}> */}
                   <Box className="noDisplay" sx={{width:'42px', height:'42px'}}>
                     <Avatar>{element.name.charAt(0)}</Avatar>
                   </Box>
@@ -31,15 +35,25 @@ export default function ContactList(props) {
                   </Box>
                   
                   <span style={{margin:'8px'}}></span>
-                  <ListItemText primary={element.name}/>
-                  <Box className="display">
-                    <StarBorderIcon sx={{color:"#919090"}}/>
-                    <span style={{margin:'8px'}}></span>
-                    <CreateOutlinedIcon sx={{color:"#919090"}}/>
-                    <span style={{margin:'8px'}}></span>
-                    <MoreVertOutlinedIcon sx={{color:"#919090"}}/>
+                  <Box sx={{flexGrow:1, cursor:'pointer'}} onClick={()=>handleClick(element.id)}>
+                    <ListItemText primary={element.name}/>
                   </Box>
-                </ListItemButton>
+                  <Box className="display">
+                    <IconButton>
+                      <StarBorderIcon sx={{color:"#919090"}}/>
+                    </IconButton>
+                    
+                    <span style={{margin:'8px'}}></span>
+                    <IconButton>
+                      <CreateOutlinedIcon sx={{color:"#919090"}}/>
+                    </IconButton>
+                    
+                    <span style={{margin:'8px'}}></span>
+                    <IconButton>
+                      <MoreVertOutlinedIcon sx={{color:"#919090"}}/>
+                    </IconButton>
+                  </Box>
+                {/* </ListItemButton> */}
               </ListItem>
             )
           })

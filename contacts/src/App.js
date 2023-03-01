@@ -11,6 +11,7 @@ import SingleContact from './components/SingleContact';
 
 export default function App() {
     const [showSingleContact, setShowSingleContact] = useState(false)
+    const [selectedID, setSelectedID] = useState(null)
   return (
     <div>
         <AppBar position="static">
@@ -34,8 +35,8 @@ export default function App() {
         </AppBar>
         {
             showSingleContact == true
-            ? <SingleContact func = {setShowSingleContact} />
-            : <ContactList func = {setShowSingleContact}/>
+            ? <SingleContact id={selectedID} func = {setShowSingleContact} />
+            : <ContactList select={setSelectedID}  func = {setShowSingleContact} number={123}/>
         }
         
     </div>

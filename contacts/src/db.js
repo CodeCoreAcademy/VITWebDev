@@ -2,7 +2,7 @@ const data = [
     {
         id:1,
         name:"Aditya",
-        contact:["123123123", "343434", "656767", "45654667"],
+        contacts:["123123123", "343434", "656767", "45654667"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -10,7 +10,7 @@ const data = [
     {
         id:2,
         name:"Kushagra",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -18,7 +18,7 @@ const data = [
     {
         id:3,
         name:"Arnav",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -26,7 +26,7 @@ const data = [
     {
         id:4,
         name:"Anushka",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -34,7 +34,7 @@ const data = [
     {
         id:5,
         name:"Atharva",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -42,7 +42,7 @@ const data = [
     {
         id:6,
         name:"Shashank",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -50,7 +50,7 @@ const data = [
     {
         id:7,
         name:"Sandeep",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -58,7 +58,7 @@ const data = [
     {
         id:8,
         name:"Bala",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -66,7 +66,7 @@ const data = [
     {
         id:9,
         name:"Chintan",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
@@ -74,7 +74,7 @@ const data = [
     {
         id:10,
         name:"Harshil",
-        contact:"123123123",
+        contacts:["123123123"],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
