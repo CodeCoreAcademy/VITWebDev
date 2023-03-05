@@ -10,9 +10,10 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import SingleContact from './SingleContact.js';
+import EditForm from './EditForm.js';
 
 export default function ContactList(props) {
-  
+  const [showEditForm, setShowEditForm] = useState(false)
   const handleClick = (id)=>{
     props.select(id)
     props.func(true)
@@ -20,7 +21,10 @@ export default function ContactList(props) {
   return (
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
       {/* {console.log(props)} */}
-      <List>
+      {
+        showEditForm
+        ? <EditForm setShowEditForm={setShowEditForm}/>
+        : <List>
         {
           data.map((element, index)=>{
             return (
@@ -44,7 +48,7 @@ export default function ContactList(props) {
                     </IconButton>
                     
                     <span style={{margin:'8px'}}></span>
-                    <IconButton>
+                    <IconButton onClick={()=>setShowEditForm(true)}>
                       <CreateOutlinedIcon sx={{color:"#919090"}}/>
                     </IconButton>
                     
@@ -60,7 +64,8 @@ export default function ContactList(props) {
         }
           
         
-      </List>
+          </List>
+      }
     </Box>
   );
 }
