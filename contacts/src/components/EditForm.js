@@ -10,30 +10,92 @@ import React, { useState } from 'react'
 
 export default function EditForm(props) {
 
-    const [phoneNumbers, setPhoneNumbers] = useState([
-        {
-            code:'',
-            phone:'',
-            label:''
-        }
-    ])
+    // const [phoneNumbers, setPhoneNumbers] = useState([
+    //     {
+    //         code:'',
+    //         phone:'',
+    //         label:''
+    //     }
+    // ])
     
-    const newNumber = ()=>{
-        setPhoneNumbers((prev)=>[
-            ...prev,
+    // const [firstName, setFirstName] = useState('')
+    // const [lastName, setLastName] = useState('')
+    const [formData, setFormData] = useState({
+        firstname:'',
+        lastname:'',
+        company:'',
+        jobtitle:'',
+        email:'',
+        phonenumbers:[
             {
+                id:1,
+                code:'',
+                phone:'',
+                label:''
+            },
+            {
+                id:2,
                 code:'',
                 phone:'',
                 label:''
             }
-        ])
+        ]
+    })
+
+    const handlePhonumbers = (index, value)=>{
+        // console.log(index, value)
+        // setFormData((prev)=> ({...prev, phonenumbers:[...prev.phonenumbers.slice(0,index), {...prev.phonenumbers[index], code:value}, ...prev.phonenumbers.slice(index+1) ]}) )
+        setFormData((prev)=>{
+            return(
+                {
+                    ...prev,
+                    phonenumbers: [...prev.phonenumbers.slice(0,index),{ ...prev.phonenumbers[index], phone:value }, ...prev.phonenumbers.slice(index+1)]
+                }
+            )
+        })
+    }
+    const newNumber = ()=>{
+        setFormData((prev)=>{
+            return(
+                {
+                    ...prev,
+                    phonenumbers:[...prev.phonenumbers, {
+                        id: new Date().getTime(),
+                        code:'',
+                        phone:'',
+                        label:''
+                    }]
+                }
+            )
+        })
+        // setPhoneNumbers((prev)=>[
+        //     ...prev,
+        //     {
+        //         code:'',
+        //         phone:'',
+        //         label:''
+        //     }
+        // ])
     }
 
-    const removeNumber = (index)=>{
-        setPhoneNumbers((prev)=>prev.filter((ele, ind)=> ind!=index))
+    const removeNumber = (id)=>{
+        console.log(id)
+        // setPhoneNumbers((prev)=>prev.filter((ele, ind)=> ind!=index))
+        // phoneNumbers.filter((ele)=>ele.id!=id)
+        setFormData((prev)=>{
+            return(
+                {
+                    ...prev,
+                    phonenumbers:prev.phonenumbers.filter((ele)=>ele.id!=id)
+                }
+            )
+        })
     }
   return (
     <Box>
+        {
+            console.log(formData)
+        }
         <Box>
             <Box sx={{
                 display:'flex', 
@@ -64,27 +126,27 @@ export default function EditForm(props) {
                     <Stack>
                         <Box sx={{ display: 'flex'}}>
                             <AccountCircle sx={{ color: 'action.active', mr: 2, mt: 3 }} />
-                            
+                            {/* {console.log(formData)} */}
                             <Box sx={{display:'flex', flexDirection:'column'}}>
-                                <TextField id="input-with-sx" label="First Name" variant="standard" />
-                                <TextField id="input-with-sx" label="Last Name" variant="standard" />
+                                <TextField id="input-with-sx" label="First Name" variant="standard" value={formData.firstname} onChange={(event)=>setFormData((prev)=>({...prev, firstname:event.target.value}) )} />
+                                <TextField id="input-with-sx" label="Last Name" variant="standard" value={formData.lastname} onChange={(event)=>setFormData((prev)=>({...prev, lastname:event.target.value}) )} />
                             </Box>
                         </Box>
                         <Box sx={{ display: 'flex'}}>
                             <BusinessIcon sx={{ color: 'action.active', mr: 2, mt: 3 }} />
                             
                             <Box sx={{display:'flex', flexDirection:'column'}}>
-                                <TextField id="input-with-sx" label="Company" variant="standard" />
-                                <TextField id="input-with-sx" label="Job Title" variant="standard" />
+                                <TextField id="input-with-sx" label="Company" variant="standard" value={formData.company} onChange={(event)=>setFormData((prev)=>({...prev, company:event.target.value}) )}/>
+                                <TextField id="input-with-sx" label="Job Title" variant="standard" value={formData.jobtitle} onChange={(event)=>setFormData((prev)=>({...prev, jobtitle:event.target.value}) )}/>
                             </Box>
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                             <MailOutlineIcon sx={{ color: 'action.active', mr: 2, my: 0.5 }} />
-                            <TextField id="input-with-sx" label="Email" variant="standard" />
+                            <TextField id="input-with-sx" label="Email" variant="standard" value={formData.email} onChange={(event)=>setFormData((prev)=>({...prev, email:event.target.value}) )}/>
                         </Box>
 
                         {
-                            phoneNumbers.map((element, index)=>{
+                            formData.phonenumbers.map((element, index)=>{
                                 return (
                                     <Box key={index}>
                                         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
@@ -93,8 +155,8 @@ export default function EditForm(props) {
                                             <Select
                                                 id="countrycode"
                                                 variant='standard'
-                                                value='+91'
-                                                // onChange={handleChange}
+                                                value={formData.phonenumbers[index].code==''?'+91':formData.phonenumbers[index].code}
+                                                onChange={(event)=>{handlePhonumbers(index, event.target.value)}}
                                                 label="Country"
                                                 sx={{mr:0.5}}
                                             >
@@ -103,13 +165,13 @@ export default function EditForm(props) {
                                                 <MenuItem value='+93'>+93</MenuItem>
                                             </Select>
                                             
-                                            <TextField id="phonenumber" label="Phone" variant="standard" />
+                                            <TextField id="phonenumber" label="Phone" variant="standard" value={formData.phonenumbers[index].phone} onChange={(event)=>handlePhonumbers(index, event.target.value)}/>
                                             {
                                                 index==0
                                                 ?<IconButton onClick={newNumber}>
                                                     <AddCircleOutlineIcon />
                                                 </IconButton>
-                                                :<IconButton onClick={()=>removeNumber(index)}>
+                                                :<IconButton onClick={()=>removeNumber(element.id)}>
                                                     <CloseIcon />
                                                 </IconButton>
                                             }
