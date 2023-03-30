@@ -1,80 +1,270 @@
 const data = [
     {
         id:1,
-        name:"Aditya",
-        contacts:["123123123", "343434", "656767", "45654667"],
+        firstname:"Aditya",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:2,
-        name:"Kushagra",
-        contacts:["123123123"],
+        firstname:"Kushagra",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:3,
-        name:"Arnav",
-        contacts:["123123123"],
+        firstname:"Arnav",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:4,
-        name:"Anushka",
-        contacts:["123123123"],
+        firstname:"Anushka",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:5,
-        name:"Atharva",
-        contacts:["123123123"],
+        firstname:"Atharva",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:6,
-        name:"Shashank",
-        contacts:["123123123"],
+        firstname:"Shashank",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:7,
-        name:"Sandeep",
-        contacts:["123123123"],
+        firstname:"Sandeep",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:8,
-        name:"Bala",
-        contacts:["123123123"],
+        firstname:"Bala",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:9,
-        name:"Chintan",
-        contacts:["123123123"],
+        firstname:"Chintan",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""
     },
     {
         id:10,
-        name:"Harshil",
-        contacts:["123123123"],
+        firstname:"Harshil",
+        lastname:"",
+        company:"",
+        jobtitle:"",
+        phonenumbers:[
+            {
+                code:'+91',
+                phone:'1231313123',
+                label:'asdsd'
+            },
+            {
+                code:'+91',
+                phone:'4444444',
+                label:'hghjg'
+            },
+            {
+                code:'+91',
+                phone:'8787787887',
+                label:'fddf'
+            }
+        ],
         email:"asdadasdasd",
         dob:"2003/01/03",
         pic:""

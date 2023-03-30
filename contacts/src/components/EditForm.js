@@ -7,49 +7,30 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import React, { useState } from 'react'
-
+import data from '../db'
 export default function EditForm(props) {
+    // const [formData, setFormData] = useState({
+    //     firstname:'',
+    //     lastname:'',
+    //     company:'',
+    //     jobtitle:'',
+    //     email:'',
+    //     phonenumbers:[
+    //         {
+    //             code:'+91',
+    //             phone:'',
+    //             label:''
+    //         },
+    //     ]
+    // })
 
-    // const [phoneNumbers, setPhoneNumbers] = useState([
-    //     {
-    //         code:'',
-    //         phone:'',
-    //         label:''
-    //     }
-    // ])
-    
-    // const [firstName, setFirstName] = useState('')
-    // const [lastName, setLastName] = useState('')
-    const [formData, setFormData] = useState({
-        firstname:'',
-        lastname:'',
-        company:'',
-        jobtitle:'',
-        email:'',
-        phonenumbers:[
-            {
-                id:1,
-                code:'',
-                phone:'',
-                label:''
-            },
-            {
-                id:2,
-                code:'',
-                phone:'',
-                label:''
-            }
-        ]
-    })
-
-    const handlePhonumbers = (index, value)=>{
-        // console.log(index, value)
-        // setFormData((prev)=> ({...prev, phonenumbers:[...prev.phonenumbers.slice(0,index), {...prev.phonenumbers[index], code:value}, ...prev.phonenumbers.slice(index+1) ]}) )
+    const [formData, setFormData] = useState(data.filter((ele)=>ele.id == props.selectedContact)[0])
+    const handlePhonumbers = (index, value, name)=>{
         setFormData((prev)=>{
             return(
                 {
                     ...prev,
-                    phonenumbers: [...prev.phonenumbers.slice(0,index),{ ...prev.phonenumbers[index], phone:value }, ...prev.phonenumbers.slice(index+1)]
+                    phonenumbers: [...prev.phonenumbers.slice(0,index),{ ...prev.phonenumbers[index], [name]:value }, ...prev.phonenumbers.slice(index+1)]
                 }
             )
         })
@@ -59,34 +40,26 @@ export default function EditForm(props) {
             return(
                 {
                     ...prev,
-                    phonenumbers:[...prev.phonenumbers, {
-                        id: new Date().getTime(),
-                        code:'',
-                        phone:'',
-                        label:''
-                    }]
+                    phonenumbers:[
+                        ...prev.phonenumbers, 
+                        {
+                            code:'+91',
+                            phone:'',
+                            label:''
+                        }
+                    ]
                 }
             )
         })
-        // setPhoneNumbers((prev)=>[
-        //     ...prev,
-        //     {
-        //         code:'',
-        //         phone:'',
-        //         label:''
-        //     }
-        // ])
+
     }
 
-    const removeNumber = (id)=>{
-        console.log(id)
-        // setPhoneNumbers((prev)=>prev.filter((ele, ind)=> ind!=index))
-        // phoneNumbers.filter((ele)=>ele.id!=id)
+    const removeNumber = (index)=>{
         setFormData((prev)=>{
             return(
                 {
                     ...prev,
-                    phonenumbers:prev.phonenumbers.filter((ele)=>ele.id!=id)
+                    phonenumbers:prev.phonenumbers.filter((ele, ind)=>ind!=index)
                 }
             )
         })
@@ -155,9 +128,11 @@ export default function EditForm(props) {
                                             <Select
                                                 id="countrycode"
                                                 variant='standard'
-                                                value={formData.phonenumbers[index].code==''?'+91':formData.phonenumbers[index].code}
-                                                onChange={(event)=>{handlePhonumbers(index, event.target.value)}}
+                                                // value={formData.phonenumbers[index].code==''?'+91':formData.phonenumbers[index].code}
+                                                value={formData.phonenumbers[index].code}
+                                                onChange={(event)=>{handlePhonumbers(index, event.target.value, "code")}}
                                                 label="Country"
+                                                name="code"
                                                 sx={{mr:0.5}}
                                             >
                                                 <MenuItem value='+91'>+91</MenuItem>
@@ -165,20 +140,20 @@ export default function EditForm(props) {
                                                 <MenuItem value='+93'>+93</MenuItem>
                                             </Select>
                                             
-                                            <TextField id="phonenumber" label="Phone" variant="standard" value={formData.phonenumbers[index].phone} onChange={(event)=>handlePhonumbers(index, event.target.value)}/>
+                                            <TextField id="phonenumber" label="Phone" variant="standard" name="phone" value={formData.phonenumbers[index].phone} onChange={(event)=>handlePhonumbers(index, event.target.value, event.target.name)}/>
                                             {
                                                 index==0
                                                 ?<IconButton onClick={newNumber}>
                                                     <AddCircleOutlineIcon />
                                                 </IconButton>
-                                                :<IconButton onClick={()=>removeNumber(element.id)}>
+                                                :<IconButton onClick={()=>removeNumber(index)}>
                                                     <CloseIcon />
                                                 </IconButton>
                                             }
                                             
                                         </Box>
                                         <Box sx={{ml:12}}>
-                                            <TextField id="numberlabel" label="Label" variant="standard" />
+                                            <TextField id="numberlabel" label="Label" variant="standard" name="label" value={formData.phonenumbers[index].label} onChange={(event)=>handlePhonumbers(index, event.target.value, event.target.name)}/>
                                         </Box>
                                     </Box>
                                 )

@@ -14,6 +14,7 @@ import EditForm from './EditForm.js';
 
 export default function ContactList(props) {
   const [showEditForm, setShowEditForm] = useState(false)
+  const [selectedContact, setSelectedContact] = useState(data[0].id)
   const handleClick = (id)=>{
     props.select(id)
     props.func(true)
@@ -23,7 +24,7 @@ export default function ContactList(props) {
       {/* {console.log(props)} */}
       {
         showEditForm
-        ? <EditForm setShowEditForm={setShowEditForm}/>
+        ? <EditForm selectedContact={selectedContact} setShowEditForm={setShowEditForm}/>
         : <List>
         {
           data.map((element, index)=>{
@@ -31,7 +32,7 @@ export default function ContactList(props) {
               <ListItem className="ab" key={element.id}>
                 {/* <ListItemButton onClick={()=>handleClick(element.id)}> */}
                   <Box className="noDisplay" sx={{width:'42px', height:'42px'}}>
-                    <Avatar>{element.name.charAt(0)}</Avatar>
+                    <Avatar>{element.firstname.charAt(0)}</Avatar>
                   </Box>
                   
                   <Box className="display" sx={{width:'42px', height:'42px'}}>
@@ -40,7 +41,7 @@ export default function ContactList(props) {
                   
                   <span style={{margin:'8px'}}></span>
                   <Box sx={{flexGrow:1, cursor:'pointer'}} onClick={()=>handleClick(element.id)}>
-                    <ListItemText primary={element.name}/>
+                    <ListItemText primary={element.firstname}/>
                   </Box>
                   <Box className="display">
                     <IconButton>
@@ -48,7 +49,7 @@ export default function ContactList(props) {
                     </IconButton>
                     
                     <span style={{margin:'8px'}}></span>
-                    <IconButton onClick={()=>setShowEditForm(true)}>
+                    <IconButton onClick={()=>{setSelectedContact(element.id);  setShowEditForm(true)}}>
                       <CreateOutlinedIcon sx={{color:"#919090"}}/>
                     </IconButton>
                     
@@ -62,8 +63,6 @@ export default function ContactList(props) {
             )
           })
         }
-          
-        
           </List>
       }
     </Box>
